@@ -1,9 +1,14 @@
-# t02-claude
+# t04-claude-round
 
-A Claude / Anthropic-styled theme for ApricityUI. Warm parchment surfaces,
-terracotta accents, serif headlines, hairline borders and ring shadows - the
-opposite end of the room from t01's dark MC pixel look, built on exactly the
-same class contract.
+The earlier Claude / Anthropic-styled theme for ApricityUI: warm parchment
+surfaces, terracotta accents, serif headlines, hairline borders and ring
+shadows. Same class contract as t01, the opposite end of the room from t01's
+dark MC pixel look.
+
+Sibling theme: **`t03-claude-square`** is the same Claude palette and the same
+contract, redesigned against claudemarket.ai - JetBrains Mono for interface
+text, Crimson Pro headings, `border-radius: 0` on essentially everything,
+white cards and no shadows. This one is the rounded half of the pair.
 
 ## Where it comes from
 
@@ -11,19 +16,45 @@ The design language is taken from the Claude design system: parchment
 (`#f5f4ed`) and ivory (`#faf9f5`) surfaces, near-black text (`#141413`), the
 terracotta brand accent (`#c96442`), warm neutrals only (**never a cool
 blue-gray**), 1px hairline borders over a ring-shadow depth system, a radius
-scale of 8 / 12 / 16 / 24 / 32px, serif headlines pinned to weight 500, and a
+scale of 8 / 12 / 16 / 24px, serif headlines pinned to weight 500, and a
 generous 1.60 body line-height.
 
-Per `../theme-spec.md` §8 it was built the documented way: copy t01's
-stylesheet, swap the token values, then adapt the shapes. The generator that
-did it lives in the session scratch, so the resulting file carries t01's rules
-plus a "Claude shape layer" and a "light-surface corrections" section at the
-end - both commented and safe to read as part of the theme.
+## It is a frozen snapshot
+
+This file is the pre-square output of the Claude generator, kept as-is so the
+two design languages can be compared. It was first parked as `t02-claude-round`
+next to the older `t02-claude` slot, then renumbered to `t04-claude-round` so
+the number follows the order the themes were written rather than the order the
+generations were named. When it was renamed it also picked up a handful of
+**defect fixes** - none of them are design decisions, and all of them apply
+equally to a round theme:
+
+- the scope class moved to `.t04-claude-round-theme` and every private name to
+  `t04-claude-round-*`, so both Claude themes can load on one page;
+- the `t01-skeleton-sweep` keyframe had never been renamed and **collided with
+  t01's own keyframes** whenever the two were loaded together - it is now
+  `t04-claude-round-skeleton-sweep`;
+- the loading sweep and the showcase stripes still faded through **ore green
+  `rgba(60,133,39)` and ore purple `rgba(115,69,229)`** (the hex colour map only
+  covered `#rrggbb`, not `rgba()`);
+- the spinner was still t01's **square ring turned in eight discrete frames**
+  (`steps(8)`); it is now a round 2px ring with a terracotta arc, turning
+  smoothly, and the button spinner's 2px off-centre margin was corrected;
+- the skeleton shimmer was white on what is now a light surface, so it was
+  invisible; it is a warm ink tint now;
+- the icon button's glyph was ivory on the ivory chip it had become, which is a
+  contrast of 1.0 - completely invisible. It is ink now, and its hover tone
+  moved off the dark ramp to match.
+
+Regenerating it is `python .tmp/mk-t04-claude-round.py` (the generator and its
+input snapshot both live in the session scratch). It deliberately does **not**
+share a pipeline with `mk-t03-claude-square.py` - the Market alignment and
+square layers are specific to that theme.
 
 ## Contract token mapping
 
 The token *names* are the shared contract; here is what each one carries in
-this theme, which is the part worth copying into the next theme:
+this theme:
 
 | Contract token | Claude role |
 | --- | --- |
@@ -39,8 +70,8 @@ this theme, which is the part worth copying into the next theme:
 | `--gold`, `--red`, `--blue`, `--success`, `--warning`, `--danger`, `--info` | Muted warm tones darkened enough to read as text on parchment |
 | `--gray-10..100` | The ten warm tones straight from the design system, light to dark |
 | `--overlay` / `--overlay-soft` | Warm black scrims, `rgba(20,20,19,.55)` / `.35` |
-| `--radius-sm` / `--radius-md` | 6px / 12px (the design system forbids sharp corners) |
-| `--motion-fast` | 150ms |
+| `--radius-sm` / `--radius-md` | 0 / 0 (the components set their own radius) |
+| `--motion-fast` | 100ms |
 | extras: `--ink-on-dark`, `--deep-dark`, `--dark-surface`, `--ring`, `--elev-ring`, `--elev-whisper`, `--font-display`, `--font-body`, `--font-mono` | Theme-private helpers, generic names, no theme prefix |
 
 ## Shape language
@@ -53,11 +84,12 @@ this theme, which is the part worth copying into the next theme:
   progress bar and loading bar became pills.
 - **Serif for authority, sans for utility.** Headings and other display text
   use `--font-display` (Georgia and friends) at weight 500; everything else
-  uses `--font-body`.
+  uses `--font-body` (system sans).
 - **The slider is a thin pill track with a white knob ringed in terracotta**,
   optionally filled from the left edge to the knob. `.slider-value` is the
   capsule readout, `.slider-scale` the two end labels, and `.slider-plain`
-  keeps the knob without the fill.
+  keeps the knob without the fill. Hover grows the knob (`scale(1.18)`) and
+  expands its shadow without changing its colour.
 - **Containers Claude keeps dark stay dark** - drawer, sidebar, toast,
   tooltip, code block - so their ivory text still holds; everything else is a
   light surface with ink text.
@@ -66,10 +98,8 @@ this theme, which is the part worth copying into the next theme:
 
 - **CJK headlines fall back to a sans font unless a serif CJK face is
   installed.** Georgia has no Chinese glyphs; the stack lists Noto Serif SC /
-  Source Han Serif SC / Songti SC / SimSun / STSong, and on a machine with
-  none of them (this one) Chinese headings render in the system CJK sans.
-  Verified with Chrome's platform-font query: Latin headings really are
-  Georgia, Chinese ones are not.
+  Source Han Serif SC / Songti SC / SimSun / STSong, and on a machine with none
+  of them Chinese headings render in the system CJK sans.
 - The `-2` and `-3` numbered generations keep their original geometry; in this
   theme they read as further variants of the same flat language rather than a
   distinct second design.
@@ -78,5 +108,4 @@ this theme, which is the part worth copying into the next theme:
 
 ## Preview
 
-`../t00-example.html` already lists this theme: pick `t02-claude` in the
-toolbar. Everything in the harness is rendered by this stylesheet alone.
+`../t00-example.html` lists this theme: pick `t04-claude-round` in the toolbar.

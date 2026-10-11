@@ -8,9 +8,9 @@
     new ApricityScreen("apricityui/theme/t00-example.html")   // 或在资源管理器里打开
 
   加一个新主题（两步）：
-    1. <head> 里补一条：<link rel="stylesheet" href="t02/t02.css">
-    2. 页面底部脚本的 THEMES 数组里加一行：{ id: "t02", name: "t02", scope: "t02-theme" }
-       以及工具栏 <select> 里加一个 <option value="t02">t02</option>
+    1. <head> 里补一条：<link rel="stylesheet" href="<name>/<name>.css">
+    2. 页面底部脚本的 THEMES 数组里加一行：{ id: "<name>", name: "<name>", scope: "<name>-theme" }
+       以及工具栏 <select> 里加一个 <option value="<name>"><name></option>
 
   为什么能一键切：每个主题的 CSS 都以自己的作用域类隔离，全部加载也不会互相污染；
   切换只是换 <body> 上的作用域类，不需要重新加载样式表，也不需要改任何标记。
@@ -28,7 +28,8 @@
 
   <!-- 所有主题的样式表一次性加载；作用域类保证互不污染 -->
   <link rel="stylesheet" href="t01/t01.css">
-  <link rel="stylesheet" href="t02-claude/t02-claude.css">
+  <link rel="stylesheet" href="t03-claude-square/t03-claude-square.css">
+  <link rel="stylesheet" href="t04-claude-round/t04-claude-round.css">
 
   <!-- 预览台外壳样式：放在主题之后，必要时可覆盖主题 -->
   <style>
@@ -122,7 +123,8 @@
     <label class="t00-label" for="t00-theme">主题</label>
     <select class="t00-select" id="t00-theme">
       <option value="t01" selected>t01</option>
-      <option value="t02-claude">t02-claude</option>
+      <option value="t03-claude-square">t03-claude-square</option>
+      <option value="t04-claude-round">t04-claude-round</option>
     </select>
     <span class="t00-scope" id="t00-scope">.t01-theme</span>
     <span class="t00-sep"></span>
@@ -602,8 +604,8 @@
               </thead>
               <tbody>
                 <tr><td>t01</td><td>reference</td><td>稳定</td></tr>
-                <tr><td>t02</td><td>draft</td><td>进行中</td></tr>
-                <tr><td>t03</td><td>idea</td><td>未开始</td></tr>
+                <tr><td>t03-claude-square</td><td>square</td><td>稳定</td></tr>
+                <tr><td>t04-claude-round</td><td>round</td><td>稳定</td></tr>
               </tbody>
             </table>
           </div>
@@ -1356,7 +1358,8 @@
          ------------------------------------------------------------------ */
       var THEMES = [
         { id: "t01", name: "t01", scope: "t01-theme" },
-    { id: "t02-claude", name: "t02-claude", scope: "t02-claude-theme" }
+        { id: "t03-claude-square", name: "t03-claude-square", scope: "t03-claude-square-theme" },
+        { id: "t04-claude-round", name: "t04-claude-round", scope: "t04-claude-round-theme" }
       ];
       var STORE_KEY = "t00-theme";
 
