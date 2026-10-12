@@ -2,7 +2,7 @@
 
 The earlier Claude / Anthropic-styled theme for ApricityUI: warm parchment
 surfaces, terracotta accents, serif headlines, hairline borders and ring
-shadows. Same class contract as t01, the opposite end of the room from t01's
+shadows. Same class contract as t01-ore, the opposite end of the room from t01-ore's
 dark MC pixel look.
 
 Sibling theme: **`t03-claude-square`** is the same Claude palette and the same
@@ -31,13 +31,13 @@ equally to a round theme:
 
 - the scope class moved to `.t04-claude-round-theme` and every private name to
   `t04-claude-round-*`, so both Claude themes can load on one page;
-- the `t01-skeleton-sweep` keyframe had never been renamed and **collided with
-  t01's own keyframes** whenever the two were loaded together - it is now
+- the `t01-ore-skeleton-sweep` keyframe had never been renamed and **collided with
+  t01-ore's own keyframes** whenever the two were loaded together - it is now
   `t04-claude-round-skeleton-sweep`;
 - the loading sweep and the showcase stripes still faded through **ore green
   `rgba(60,133,39)` and ore purple `rgba(115,69,229)`** (the hex colour map only
   covered `#rrggbb`, not `rgba()`);
-- the spinner was still t01's **square ring turned in eight discrete frames**
+- the spinner was still t01-ore's **square ring turned in eight discrete frames**
   (`steps(8)`); it is now a round 2px ring with a terracotta arc, turning
   smoothly, and the button spinner's 2px off-centre margin was corrected;
 - the skeleton shimmer was white on what is now a light surface, so it was
@@ -76,7 +76,7 @@ this theme:
 
 ## Shape language
 
-- **1px hairlines everywhere.** Every 2-4px border in t01 became 1px; thick
+- **1px hairlines everywhere.** Every 2-4px border in t01-ore became 1px; thick
   borders are simply not part of this language.
 - **Depth is a ring, not a bevel.** All inset bevels were dropped; the depth
   language is `0 0 0 1px` rings, plus a whisper shadow

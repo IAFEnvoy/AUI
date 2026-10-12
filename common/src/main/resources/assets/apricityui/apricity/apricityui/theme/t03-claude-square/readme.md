@@ -3,7 +3,7 @@
 A Claude / Anthropic-styled theme for ApricityUI, sampled from the real Claude
 Market site (claudemarket.ai): mono interface text under serif headings,
 square corners, white cards on a warm near-white page, hairline borders and no
-shadows. Same class contract as t01, the opposite end of the room from t01's
+shadows. Same class contract as t01-ore, the opposite end of the room from t01-ore's
 dark MC pixel look.
 
 Sibling theme: **`t04-claude-round`** is the same Claude palette in its earlier,
@@ -23,15 +23,15 @@ computed styles rather than guessed from a screenshot:
 - **`border-radius: 0` on essentially everything** - the live site sets 0 on
   ~1500 elements and only a handful of round controls are the exception;
 - **no shadows**: depth is a hairline, not an elevation. `--elev-whisper` is
-  `none` and every gradient/inset bevel from t01 is gone;
+  `none` and every gradient/inset bevel from t01-ore is gone;
 - the terracotta brand accent `#c96442`, a coral link tone `#ee7e60`, and a
   peach chip (`#fff1ea` fill, `#e7c9bc` outline) for secondary actions.
 
-Per `../theme-spec.md` §8 it was built the documented way: copy t01's
+Per `../theme-spec.md` §8 it was built the documented way: copy t01-ore's
 stylesheet, swap the token values, then adapt the shapes. The generator
 (`.tmp/mk-t03-claude-square.py`) lives in the session scratch; the resulting
-file carries t01's rules plus a "Claude shape layer", a "light-surface
-corrections" section, a "Structural differentiation from t01" pass and a final
+file carries t01-ore's rules plus a "Claude shape layer", a "light-surface
+corrections" section, a "Structural differentiation from t01-ore" pass and a final
 "Claude Market alignment" layer - all commented, so they can be read as part of
 the theme.
 
@@ -69,12 +69,12 @@ this theme, which is the part worth copying into the next theme:
   spinner stay circles; the slider track/knob, the switch track/thumb and the
   scrollbar thumb stay pills. Full-width text areas and inputs are square even
   though the site's own inputs are too.
-- **The spinner is a ring, not a box.** t01's is a square with a 4px ring that
+- **The spinner is a ring, not a box.** t01-ore's is a square with a 4px ring that
   turns in eight discrete frames (`steps(8)`) - a pixel artefact that survived
   the first pass. Here it is a 2px round ring on a warm track with a terracotta
   arc, turning smoothly (`linear`); the button spinner keeps each variant's own
   border colours so it stays legible on a filled slab.
-- **1px hairlines only.** Every 2-4px border in t01 became 1px; thick borders
+- **1px hairlines only.** Every 2-4px border in t01-ore became 1px; thick borders
   are not part of this language.
 - **Mono for interface, serif for display.** Headings use `--font-display`
   (Crimson Pro → Georgia); everything else - body, buttons, labels, table
@@ -121,7 +121,7 @@ this theme, which is the part worth copying into the next theme:
 - **The webfonts are not bundled.** Chrome on this machine has neither
   JetBrains Mono nor Crimson Pro, so the preview falls back to Consolas and
   Georgia. The stacks list both, so a machine with them installed gets the
-  real thing; shipping them in a `fonts/` directory (as t01 does) would make it
+  real thing; shipping them in a `fonts/` directory (as t01-ore does) would make it
   deterministic.
 - **CJK falls back to a system face.** Neither stack has Chinese glyphs; the
   stacks list Sarasa/Noto Mono CJK and Noto Serif SC / Source Han Serif SC /

@@ -15,7 +15,7 @@
   为什么能一键切：每个主题的 CSS 都以自己的作用域类隔离，全部加载也不会互相污染；
   切换只是换 <body> 上的作用域类，不需要重新加载样式表，也不需要改任何标记。
 
-  本页只使用规范的核心类与 `--*` token，不用任何主题私有类（如 t01-swatch）。
+  本页只使用规范的核心类与 `--*` token，不用任何主题私有类（如 t01-ore-swatch）。
   工具栏自身的样式是本页私有的 `.t00-*`，不参与主题契约，且刻意不跟随主题，
   保证主题样式再坏也能操作。
 -->
@@ -27,9 +27,11 @@
   <title>t00 主题预览台</title>
 
   <!-- 所有主题的样式表一次性加载；作用域类保证互不污染 -->
-  <link rel="stylesheet" href="t01/t01.css">
+  <link rel="stylesheet" href="t01-ore/t01-ore.css">
   <link rel="stylesheet" href="t03-claude-square/t03-claude-square.css">
   <link rel="stylesheet" href="t04-claude-round/t04-claude-round.css">
+  <link rel="stylesheet" href="t05-curseforge/t05-curseforge.css">
+  <link rel="stylesheet" href="t06-modrinth-light/t06-modrinth-light.css">
 
   <!-- 预览台外壳样式：放在主题之后，必要时可覆盖主题 -->
   <style>
@@ -116,17 +118,19 @@
   </style>
 </head>
 
-<body class="t01-theme t00-shell">
+<body class="t01-ore-theme t00-shell">
 
   <header class="t00-bar">
     <span class="t00-brand">t00</span>
     <label class="t00-label" for="t00-theme">主题</label>
     <select class="t00-select" id="t00-theme">
-      <option value="t01" selected>t01</option>
+      <option value="t01-ore" selected>t01-ore</option>
       <option value="t03-claude-square">t03-claude-square</option>
       <option value="t04-claude-round">t04-claude-round</option>
+      <option value="t05-curseforge">t05-curseforge</option>
+      <option value="t06-modrinth-light">t06-modrinth-light</option>
     </select>
-    <span class="t00-scope" id="t00-scope">.t01-theme</span>
+    <span class="t00-scope" id="t00-scope">.t01-ore-theme</span>
     <span class="t00-sep"></span>
     <button class="t00-tab active" type="button" data-sec="chrome">导航与表面</button>
     <button class="t00-tab" type="button" data-sec="controls">表单与控件</button>
@@ -224,7 +228,7 @@
 
         <div class="t00-block">
           <h3>代码块</h3>
-          <pre><code>.t01-theme .button {
+          <pre><code>.t01-ore-theme .button {
   min-height: 42px;
   border: 3px solid var(--edge);
   background: var(--green);
@@ -314,7 +318,7 @@
           <div class="breadcrumb">
             <span>首页</span>
             <span>主题</span>
-            <span class="text-muted">t01</span>
+            <span class="text-muted">t01-ore</span>
           </div>
           <p class="t00-hint">分隔符由 CSS 生成，标记里只写同级子元素（原来要求必须是 <code>li</code>）。</p>
         </div>
@@ -431,7 +435,7 @@
             <div class="col-6">
               <div class="form-group">
                 <label class="form-label" for="t00-name">文本输入</label>
-                <input class="form-input" id="t00-name" type="text" value="t01" placeholder="输入点什么">
+                <input class="form-input" id="t00-name" type="text" value="t01-ore" placeholder="输入点什么">
                 <p class="form-help">form-help：辅助说明文字</p>
               </div>
               <div class="form-group">
@@ -603,9 +607,11 @@
                 <tr><th>名称</th><th>类型</th><th>状态</th></tr>
               </thead>
               <tbody>
-                <tr><td>t01</td><td>reference</td><td>稳定</td></tr>
+                <tr><td>t01-ore</td><td>reference</td><td>稳定</td></tr>
                 <tr><td>t03-claude-square</td><td>square</td><td>稳定</td></tr>
                 <tr><td>t04-claude-round</td><td>round</td><td>稳定</td></tr>
+                <tr><td>t05-curseforge</td><td>dark / square</td><td>稳定</td></tr>
+                <tr><td>t06-modrinth-light</td><td>light / rounded</td><td>稳定</td></tr>
               </tbody>
             </table>
           </div>
@@ -1187,7 +1193,7 @@
           <div class="grid">
             <div class="col-3"><div class="stat"><div class="stat-value">1 024</div><div class="stat-label">方块</div></div></div>
             <div class="col-3"><div class="stat"><div class="stat-value">87%</div><div class="stat-label">完成度</div></div></div>
-            <div class="col-6"><div class="stat"><div class="stat-value">t01</div><div class="stat-label">大数字用 OreDisplay 字族</div></div></div>
+            <div class="col-6"><div class="stat"><div class="stat-value">t01-ore</div><div class="stat-label">大数字用 OreDisplay 字族</div></div></div>
           </div>
         </div>
 
@@ -1357,9 +1363,11 @@
          并同步 <head> 里的 <link rel="stylesheet"> 和工具栏 <option>
          ------------------------------------------------------------------ */
       var THEMES = [
-        { id: "t01", name: "t01", scope: "t01-theme" },
+        { id: "t01-ore", name: "t01-ore", scope: "t01-ore-theme" },
         { id: "t03-claude-square", name: "t03-claude-square", scope: "t03-claude-square-theme" },
-        { id: "t04-claude-round", name: "t04-claude-round", scope: "t04-claude-round-theme" }
+        { id: "t04-claude-round", name: "t04-claude-round", scope: "t04-claude-round-theme" },
+        { id: "t05-curseforge", name: "t05-curseforge", scope: "t05-curseforge-theme" },
+        { id: "t06-modrinth-light", name: "t06-modrinth-light", scope: "t06-modrinth-light-theme" }
       ];
       var STORE_KEY = "t00-theme";
 

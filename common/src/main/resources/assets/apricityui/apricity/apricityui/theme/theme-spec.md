@@ -9,7 +9,7 @@
    - **核心层**：所有主题都必须实现，用它的页面可以一键切换；
    - **扩展层**：编号变体（`-2`/`-3`）和各主题自己的装饰件，自由发挥，用它们的页面不保证跨主题。
 
-参考实现：`theme/t01/`（本规范的第一个符合者）。
+参考实现：`theme/t01-ore/`（本规范的第一个符合者）。
 
 ---
 
@@ -18,14 +18,14 @@
 **目录与入口**：`theme/<name>/<name>.css`，唯一必需文件；字体放同目录 `fonts/`。
 
 **主题名必须是合法 CSS 标识符**：小写 kebab-case，**不能数字开头**。
-`.01-ore-theme` 在标准 CSS 里是非法选择器，浏览器会整条丢弃（AUI 的解析器因为用 `[\w-]` 匹配类名所以能接受，但没必要踩这个坑——`t01` 就是这么来的）。
+`.01-ore-theme` 在标准 CSS 里是非法选择器，浏览器会整条丢弃（AUI 的解析器因为用 `[\w-]` 匹配类名所以能接受，但没必要踩这个坑——`t01-ore` 就是这么来的）。
 
 **作用域类** `.<name>-theme` 挂在根元素上。**每条选择器都要以它开头**（`@font-face` / `@keyframes` / `@media` 本身除外，`@media` 内的规则同样要加）。
 唯一例外：驱动结构而非皮肤的选择器（如展台的 `#<name>-modal-toggle:checked ~ …`）可以不带作用域。
 这样一个页面里可以共存多个主题，互不污染。
 
 **画布底色由页面铺，不由主题铺**。主题的作用域根块只设 `color` 等文字类属性，**不要写 `background`**——主题也可能用在 HUD / 悬浮层文档里，那些场景不该铺底。
-页面自己写 `background-color: var(--canvas)`（用 token，不要写死颜色），这样换主题时底色才会跟着换。预览台 `t00-example.html` 和 `t01/example.html` 都是这么做的。
+页面自己写 `background-color: var(--canvas)`（用 token，不要写死颜色），这样换主题时底色才会跟着换。预览台 `t00-example.html` 和 `t01-ore/example.html` 都是这么做的。
 
 **字体（可选）**：惯例是两个角色各一个 `@font-face`（`font-weight: 400; font-style: normal;`）——正文字族给作用域根块和表单控件，标题族给 `h1–h6`、`.font-display`、按钮。族名属于主题内部实现，不进契约。引擎的 `@font-face` **只读 font-family 和第一个 `src` 的 url()**，`format()` 会被忽略。
 
@@ -241,7 +241,7 @@
 工具类名固定：`.text-left/-center/-right`、`.text-success/-warning/-danger/-info`、`.font-sm/-lg/-display`、`.hidden`、`.invisible`、`.w-full`、`.m-0`、`.mt-1..4` / `.mb-1..4`（4/8/16/24px）、`.p-1..4`。
 布局件固定：`.container`（居中限宽）/ `.container-fluid`、`.grid` 十二列 + `.col-1..12`、`.stack`（纵）、`.cluster`（横换行）、`.split`（两端对齐）。
 
-断点值不强制，但**主题必须在窄容器下可用**。惯用 `900px` 与 `560px`（`t01`/`ore` 都用这对），沿用便于页面自己写断点覆写。注意 `@media` 只支持 `min/max-width|height`、`orientation` 和 `and`。
+断点值不强制，但**主题必须在窄容器下可用**。惯用 `900px` 与 `560px`（`t01-ore`/`ore` 都用这对），沿用便于页面自己写断点覆写。注意 `@media` 只支持 `min/max-width|height`、`orientation` 和 `and`。
 
 ---
 
@@ -300,7 +300,7 @@
 ## 8. 新主题 checklist
 
 1. 建 `theme/<name>/<name>.css`，命名合法（不以数字开头），作用域类 `.<name>-theme`，全文选择器都以它开头；
-2. 抄一份参考实现（`t01`）的样式表，**先只换 token 值**，跑通再改造型；
+2. 抄一份参考实现（`t01-ore`）的样式表，**先只换 token 值**，跑通再改造型；
 3. 逐个过 §2 的必填 token——**不加、不删、不改名**；
 4. 按 §3 核对每个核心组件：**用最小标记能渲染出正确视觉**，多写的子元素忽略即可；
 5. 按 §4 补状态钩子，尤其是禁用要压过 hover；

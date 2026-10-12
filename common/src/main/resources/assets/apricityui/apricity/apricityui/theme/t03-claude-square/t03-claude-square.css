@@ -1,5 +1,5 @@
 /*
- * t01 theme for ApricityUI.
+ * t01-ore theme for ApricityUI.
  * Derived from the Ore theme, itself adapted from Minecraft-CSS by Jiyath5516F
  * under the Mozilla Public License 2.0. The complete license is distributed
  * beside this file as license.txt.
@@ -3884,7 +3884,7 @@
 /* --------------------------------------------------------------------------
    Light-surface corrections
 
-   t01 is a dark theme, so much of its text is ivory-on-dark. Once the warm
+   t01-ore is a dark theme, so much of its text is ivory-on-dark. Once the warm
    Claude palette turned those surfaces light, the ivory text has to become
    ink. Containers Claude keeps dark (drawer, sidebar, toast, tooltip, code)
    stay dark through their tokens instead, so their ivory text still holds.
@@ -4035,7 +4035,7 @@
 /* --------------------------------------------------------------------------
    Claude detail pass
 
-   t01's control geometry was built on a 2px pixel grid with bottom-heavy
+   t01-ore's control geometry was built on a 2px pixel grid with bottom-heavy
    padding (the pressed state swapped the vertical padding - a bevel trick).
    Flattened into Claude's language those read as off-centre and cramped, so
    the numbers get retuned here: balanced padding, roomier surfaces,
@@ -4192,7 +4192,7 @@
 .t03-claude-square-theme .page-button { display: inline-flex; align-items: center; justify-content: center; }
 
 /* Secondary and normal buttons become Claude's Warm Sand button - the light
-   grey tertiary/normal skins were t01 leftovers and read as placeholder-ish. */
+   grey tertiary/normal skins were t01-ore leftovers and read as placeholder-ish. */
 .t03-claude-square-theme .button-tertiary,
 .t03-claude-square-theme .button-normal {
   color: #4d4c48;
@@ -4210,7 +4210,7 @@
 .t03-claude-square-theme .button-tertiary:active,
 .t03-claude-square-theme .button-normal:active { background: var(--ring); }
 
-/* Claude's editorial heading scale. t01's ladder (36/28/22/18/16/14) is sized
+/* Claude's editorial heading scale. t01-ore's ladder (36/28/22/18/16/14) is sized
    for a pixel UI; Claude's hierarchy is book-title large (52/36/28/22/18/16
    with more space under each), which is the single most recognisable part of
    the language. */
@@ -4261,7 +4261,7 @@
 .t03-claude-square-theme .sidebar-button:hover { background: var(--edge-light); border-color: var(--ring); }
 
 /* Panels are one tone with hairline separators, and menus are light popovers:
-   the mid-grey menu and the sand header band were both t01 leftovers. */
+   the mid-grey menu and the sand header band were both t01-ore leftovers. */
 .t03-claude-square-theme {
   --drawer-header-background: var(--surface);
   --dropdown-menu-background: var(--surface);
@@ -4288,9 +4288,9 @@
 .t03-claude-square-theme .panel-footer { border-top: 1px solid var(--edge); }
 
 /* --------------------------------------------------------------------------
-   Structural differentiation from t01
+   Structural differentiation from t01-ore
 
-   Repainting t01 does not stop it reading as t01: its structure is banded
+   Repainting t01-ore does not stop it reading as t01-ore: its structure is banded
    headers, thick bordered cells, filled hover boxes, bar-left alerts and
    chunky serif buttons. Claude's structure is a title inside the surface
    padding, hairline separators, colour-change hovers, tinted notices, light
@@ -4312,7 +4312,7 @@
 .t03-claude-square-theme .tag,
 .t03-claude-square-theme .menu-shortcut { font-family: var(--font-body); }
 
-/* Compact flat controls instead of t01's chunky serif buttons. */
+/* Compact flat controls instead of t01-ore's chunky serif buttons. */
 .t03-claude-square-theme .button,
 .t03-claude-square-theme .form-button { min-height: 36px; padding: 8px 14px; font-size: 15px; }
 .t03-claude-square-theme .button-small { min-height: 30px; padding: 6px 10px; font-size: 14px; }
@@ -4729,7 +4729,7 @@
 .t03-claude-square-theme .code-block code,
 .t03-claude-square-theme .t03-claude-square-code code { color: var(--ink); }
 
-/* Light-surface guards. t01 put ivory text on chips that are now white, which
+/* Light-surface guards. t01-ore put ivory text on chips that are now white, which
    leaves the glyph invisible; the icon button and the empty-state glyph have
    to flip to ink, and the button's hover tone has to leave the dark ramp. */
 .t03-claude-square-theme {
@@ -4742,7 +4742,7 @@
 /* --------------------------------------------------------------------------
    Loading
 
-   t01's spinner is a square with a 4px ring turning in eight discrete frames
+   t01-ore's spinner is a square with a 4px ring turning in eight discrete frames
    (steps(8)) - it reads as an ore pixel artefact, not as this theme. Here the
    ring is round, thin, and turns smoothly, with a terracotta arc on a warm
    track. The button spinner keeps whatever border colours each button variant

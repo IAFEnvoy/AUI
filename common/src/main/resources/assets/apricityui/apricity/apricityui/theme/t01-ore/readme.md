@@ -1,6 +1,6 @@
-# t01
+# t01-ore
 
-`t01` is a rewrite of the Ore theme: the same MC pixel look, but the components
+`t01-ore` is a rewrite of the Ore theme: the same MC pixel look, but the components
 ask for as little markup as possible. Anything that can be drawn with
 `::before` / `::after` is drawn with a pseudo element, so one element is one
 component.
@@ -11,8 +11,8 @@ compatibility variables, no legacy sub-elements.
 ## Usage
 
 ```html
-<link rel="stylesheet" href="t01.css">
-<body class="t01-theme">
+<link rel="stylesheet" href="t01-ore.css">
+<body class="t01-ore-theme">
   <button class="button button-primary">Create world</button>
 </body>
 ```
@@ -23,7 +23,7 @@ controls); nothing is fetched from the network. The stylesheet is MPL-2.0, see
 
 ## What no longer needs markup
 
-| Component | Ore asked for | t01 asks for |
+| Component | Ore asked for | t01-ore asks for |
 | --- | --- | --- |
 | `.switch` | `.switch-control` > `.switch-status` + `.switch-button` | the `.switch` element alone (track is `::before`, thumb `::after`, the icon variant is extra background layers) |
 | `.slider` / `.slider-2` | `.slider-process` + `.slider-thumb` | the element alone (`::before` fill, `::after` thumb) |
@@ -58,7 +58,7 @@ pseudo would still paint above its host's background and cover the panel.
 
 ## Added components
 
-Beyond the shared core set above, t01 also ships the shapes an MC settings
+Beyond the shared core set above, t01-ore also ships the shapes an MC settings
 window needs, all in the same language (hard corners, 3px `--edge` outlines,
 inset bevels, greens for the active state, `--disabled-*` for disabled):
 
@@ -89,7 +89,7 @@ cross-theme preview harness for the same set.
 
 ## Naming
 
-The scope class is `.t01-theme`, a plain spec-valid class name, so the
+The scope class is `.t01-ore-theme`, a plain spec-valid class name, so the
 stylesheet behaves the same in AUI and in a browser. Everything else follows
 the shared theme conventions: `--*` tokens without a theme prefix, state hooks
 (`:checked`, `[disabled]`, `[aria-checked="true"]`, `[data-state="on"]`, …)
