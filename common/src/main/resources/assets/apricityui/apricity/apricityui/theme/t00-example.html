@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="t04-claude-round/t04-claude-round.css">
   <link rel="stylesheet" href="t05-curseforge/t05-curseforge.css">
   <link rel="stylesheet" href="t06-modrinth-light/t06-modrinth-light.css">
+  <link rel="stylesheet" href="t06-modrinth-dark/t06-modrinth-dark.css">
 
   <!-- 预览台外壳样式：放在主题之后，必要时可覆盖主题 -->
   <style>
@@ -87,7 +88,7 @@
       cursor: pointer;
     }
     .t00-tab:hover { background: var(--edge-light, #77797c); }
-    .t00-tab.active { border-color: var(--green-shadow, #1d4d13); background: var(--green, #3c8527); color: #ffffff; }
+    .t00-tab.active { border-color: var(--green-shadow, #1d4d13); background: var(--green, #3c8527); color: var(--ink-on-accent, #ffffff); }
 
     .t00-main { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-bottom: 56px; }
 
@@ -129,6 +130,7 @@
       <option value="t04-claude-round">t04-claude-round</option>
       <option value="t05-curseforge">t05-curseforge</option>
       <option value="t06-modrinth-light">t06-modrinth-light</option>
+      <option value="t06-modrinth-dark">t06-modrinth-dark</option>
     </select>
     <span class="t00-scope" id="t00-scope">.t01-ore-theme</span>
     <span class="t00-sep"></span>
@@ -612,6 +614,7 @@
                 <tr><td>t04-claude-round</td><td>round</td><td>稳定</td></tr>
                 <tr><td>t05-curseforge</td><td>dark / square</td><td>稳定</td></tr>
                 <tr><td>t06-modrinth-light</td><td>light / rounded</td><td>稳定</td></tr>
+                <tr><td>t06-modrinth-dark</td><td>dark / rounded</td><td>稳定</td></tr>
               </tbody>
             </table>
           </div>
@@ -1367,7 +1370,8 @@
         { id: "t03-claude-square", name: "t03-claude-square", scope: "t03-claude-square-theme" },
         { id: "t04-claude-round", name: "t04-claude-round", scope: "t04-claude-round-theme" },
         { id: "t05-curseforge", name: "t05-curseforge", scope: "t05-curseforge-theme" },
-        { id: "t06-modrinth-light", name: "t06-modrinth-light", scope: "t06-modrinth-light-theme" }
+        { id: "t06-modrinth-light", name: "t06-modrinth-light", scope: "t06-modrinth-light-theme" },
+        { id: "t06-modrinth-dark", name: "t06-modrinth-dark", scope: "t06-modrinth-dark-theme" }
       ];
       var STORE_KEY = "t00-theme";
 

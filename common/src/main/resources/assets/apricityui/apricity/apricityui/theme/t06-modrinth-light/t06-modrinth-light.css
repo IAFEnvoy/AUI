@@ -4764,19 +4764,27 @@
 .t06-modrinth-light-theme .slider-2::after {
   width: 1.125rem;
   height: 1.125rem;
-  border: 1px solid var(--edge);
-  background: var(--surface-soft);
-  box-shadow: var(--elev-button);
+  /* 圆钮 = 绿色圆盘 + 留白环 + 1px 外描边，三层同心。伪元素不能再挂伪元素，引擎又
+     没有 radial-gradient，所以"环"用实心 border 画、"圆盘"用背景色画：这两样任何引擎
+     都会渲染，不依赖多重阴影或 inset 阴影是否被支持。留白环取 --slider-thumb-background，
+     它本来就是"圆钮的芯片色"，深浅两套各自解析，不用在深色层再改文本。 */
+  border: 0.25rem solid var(--slider-thumb-background);
+  background: var(--green);
+  box-shadow: 0 0 0 1px var(--edge), var(--elev-button);
   transition: left var(--motion-fast) var(--ease), transform var(--motion-fast) var(--ease), box-shadow var(--motion-fast) var(--ease);
 }
 .t06-modrinth-light-theme .slider:hover::after,
 .t06-modrinth-light-theme .slider-2:hover::after {
-  border-color: var(--edge-light);
+  background: var(--green);
   transform: translate(-50%, -50%) scale(1.15);
-  box-shadow: 0 3px 8px rgba(17, 24, 39, 0.24);
+  box-shadow: 0 0 0 1px var(--edge-light), 0 3px 8px rgba(17, 24, 39, 0.24);
 }
 .t06-modrinth-light-theme .slider:active::after,
-.t06-modrinth-light-theme .slider-2:active::after { transform: translate(-50%, -50%) scale(1.22); }
+.t06-modrinth-light-theme .slider-2:active::after {
+  background: var(--green);
+  transform: translate(-50%, -50%) scale(1.22);
+  box-shadow: 0 0 0 1px var(--edge-light), 0 3px 8px rgba(17, 24, 39, 0.24);
+}
 .t06-modrinth-light-theme .slider-value {
   min-width: 2.75rem;
   padding: 0.125rem var(--gap-sm);
